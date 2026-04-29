@@ -1,2 +1,3 @@
 # AB-WRO-ANDR-ES-DE-VANDELVIRA
 WRO PROJECT ANDRÉS DE VANDELVIRA
+Para hacer el coche hemos utilizado piezas Nezha. Primero hemos hecho el chasis con barras abajo del todo para poder poner el módulo donde va la tarjeta microbit con motores y sensores de ultra sonidos. Hemos utilizado dos motores, uno con un diferencial en las ruedas de delante para poder girar y el otro motor lo hemos puesto atrás para que las ruedas traseras del coche puedan hacer la fuerza para avanzar y pudiendo girar con el motor y diferencial. Luego hemos puesto una cámara HuskyLens que detecta colores de momento para los bloques de colores y 
