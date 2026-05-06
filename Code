@@ -1,0 +1,152 @@
+function aparcar () {
+    neZha.stopMotor(neZha.MotorList.M1)
+    basic.pause(2000)
+    neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto - izdadcha - 10)
+    neZha.setMotorSpeed(neZha.MotorList.M1, 17)
+    basic.pause(3000)
+    neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto + izdadcha + 10)
+    neZha.setMotorSpeed(neZha.MotorList.M1, 17)
+    basic.pause(2500)
+    neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto)
+    basic.pause(1000)
+    neZha.stopMotor(neZha.MotorList.M1)
+    basic.pause(1000)
+    neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto + izdadcha + 10)
+    neZha.setMotorSpeed(neZha.MotorList.M1, -17)
+    basic.pause(5000)
+    neZha.stopMotor(neZha.MotorList.M1)
+    basic.pause(2000)
+    for (let index = 0; index < 8; index++) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto + izdadcha + 10)
+        neZha.setMotorSpeed(neZha.MotorList.M1, 15)
+        basic.pause(500)
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto - izdadcha - 10)
+        neZha.setMotorSpeed(neZha.MotorList.M1, -15)
+        basic.pause(500)
+    }
+    neZha.stopMotor(neZha.MotorList.M1)
+}
+input.onButtonPressed(Button.A, function () {
+    controbloques = 0
+    while (true) {
+        huskylens.request()
+        huskylens.writeOSD(convertToText(huskylens.readeBox(3, Content1.xCenter)), 0, 30)
+        huskylens.writeOSD(convertToText(huskylens.readeBox(1, Content1.yCenter)), 0, 60)
+        huskylens.writeOSD(convertToText(huskylens.readBox_s(Content3.ID)), 0, 90)
+        if (controbloques == 0) {
+            if (huskylens.isAppear(1, HUSKYLENSResultType_t.HUSKYLENSResultBlock)) {
+                controbloques = 1
+            } else {
+                if (huskylens.isAppear(2, HUSKYLENSResultType_t.HUSKYLENSResultBlock)) {
+                    controbloques = 2
+                } else {
+                    if (huskylens.isAppear(3, HUSKYLENSResultType_t.HUSKYLENSResultBlock) && aparca) {
+                        controbloques = 3
+                    } else {
+                        controbloques = 4
+                    }
+                }
+            }
+        }
+        if (controbloques == 1) {
+            seguirverde1(110)
+            if (PlanetX_Basic.ultrasoundSensor(PlanetX_Basic.DigitalRJPin.J2, PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm) <= 20) {
+                giroizda()
+                controbloques = 0
+            }
+        }
+        if (controbloques == 2) {
+            seguirojo2(80)
+            if (PlanetX_Basic.ultrasoundSensor(PlanetX_Basic.DigitalRJPin.J2, PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm) <= 20) {
+                giradcha()
+                controbloques = 0
+            }
+        }
+        if (controbloques == 3) {
+            seguirmagenta(160)
+            if (PlanetX_Basic.ultrasoundSensor(PlanetX_Basic.DigitalRJPin.J2, PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm) <= 20) {
+                aparcar()
+                controbloques = 0
+            }
+        }
+        if (controbloques == 4) {
+            neZha.setMotorSpeed(neZha.MotorList.M1, 18)
+        }
+    }
+})
+function seguirojo2 (num: number) {
+    if (huskylens.readeBox(2, Content1.xCenter) <= num - 10) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto - izdadcha)
+    }
+    if (huskylens.readeBox(2, Content1.xCenter) >= num + 10) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto + izdadcha)
+    }
+    if (huskylens.readeBox(2, Content1.xCenter) >= num - 10 && huskylens.readeBox(2, Content1.xCenter) <= num + 10) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto)
+    }
+    neZha.setMotorSpeed(neZha.MotorList.M1, 15)
+}
+function giradcha () {
+    neZha.stopMotor(neZha.MotorList.M1)
+    basic.pause(2000)
+    neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto + izdadcha + 10)
+    neZha.setMotorSpeed(neZha.MotorList.M1, 17)
+    basic.pause(2500)
+    neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto - izdadcha - 10)
+    neZha.setMotorSpeed(neZha.MotorList.M1, 17)
+    basic.pause(2500)
+    neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto)
+    basic.pause(1500)
+    neZha.stopMotor(neZha.MotorList.M1)
+}
+function giroizda () {
+    neZha.stopMotor(neZha.MotorList.M1)
+    basic.pause(2000)
+    neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto - izdadcha - 10)
+    neZha.setMotorSpeed(neZha.MotorList.M1, 17)
+    basic.pause(2500)
+    neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto + izdadcha + 10)
+    neZha.setMotorSpeed(neZha.MotorList.M1, 17)
+    basic.pause(2500)
+    neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto)
+    basic.pause(1500)
+    neZha.stopMotor(neZha.MotorList.M1)
+}
+function seguirverde1 (num: number) {
+    if (huskylens.readeBox(1, Content1.xCenter) <= num - 10) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto - izdadcha)
+    }
+    if (huskylens.readeBox(1, Content1.xCenter) >= num + 10) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto + izdadcha)
+    }
+    if (huskylens.readeBox(1, Content1.xCenter) >= num - 10 && huskylens.readeBox(1, Content1.xCenter) <= num + 10) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto)
+    }
+    neZha.setMotorSpeed(neZha.MotorList.M1, 15)
+}
+function seguirmagenta (num: number) {
+    if (huskylens.readeBox(3, Content1.xCenter) <= num - 10) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto - izdadcha)
+    }
+    if (huskylens.readeBox(3, Content1.xCenter) <= num + 10) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto + izdadcha)
+    }
+    if (huskylens.readeBox(3, Content1.xCenter) >= num - 10 && huskylens.readeBox(3, Content1.xCenter) <= num + 10) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto)
+    }
+    neZha.setMotorSpeed(neZha.MotorList.M1, 15)
+}
+let controbloques = 0
+let aparca = false
+let izdadcha = 0
+let recto = 0
+huskylens.initI2c()
+huskylens.initMode(protocolAlgorithm.ALGORITHM_COLOR_RECOGNITION)
+huskylens.clearOSD()
+recto = 105
+izdadcha = 25
+neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, recto)
+aparca = true
+basic.forever(function () {
+	
+})
