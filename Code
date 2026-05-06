@@ -1,0 +1,76 @@
+function giro () {
+    if (izda < 150) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 60)
+        neZha.setMotorSpeed(neZha.MotorList.M1, 20)
+        basic.showIcon(IconNames.Rollerskate)
+        basic.pause(4000)
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 95)
+        basic.pause(1500)
+    } else {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 120)
+        neZha.setMotorSpeed(neZha.MotorList.M1, 20)
+        basic.showIcon(IconNames.StickFigure)
+        basic.pause(4000)
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 95)
+        basic.pause(1500)
+    }
+}
+input.onButtonPressed(Button.A, function () {
+    while (cuentapared <= 12) {
+        izda = PlanetX_Basic.ultrasoundSensor(PlanetX_Basic.DigitalRJPin.J1, PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm)
+        dcha = PlanetX_Basic.ultrasoundSensor(PlanetX_Basic.DigitalRJPin.J3, PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm)
+        resta = izda - dcha
+        restadrchaizda = dcha - izda
+        if (izda > 200 || dcha > 200) {
+            giro()
+        } else {
+            siguedosparedes()
+        }
+    }
+    neZha.stopAllMotor()
+    basic.showIcon(IconNames.Happy)
+})
+function seguirpared (num: number) {
+    if (PlanetX_Basic.ultrasoundSensor(PlanetX_Basic.DigitalRJPin.J1, PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm) > dpared - 2 && PlanetX_Basic.ultrasoundSensor(PlanetX_Basic.DigitalRJPin.J1, PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm) < dpared + 2) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 95)
+        neZha.setMotorSpeed(neZha.MotorList.M1, 20)
+    } else {
+        if (PlanetX_Basic.ultrasoundSensor(PlanetX_Basic.DigitalRJPin.J1, PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm) > dpared + 2) {
+            neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 120)
+            neZha.setMotorSpeed(neZha.MotorList.M1, 20)
+        }
+        if (PlanetX_Basic.ultrasoundSensor(PlanetX_Basic.DigitalRJPin.J1, PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm) < dpared - 2) {
+            neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 60)
+            neZha.setMotorSpeed(neZha.MotorList.M1, 20)
+        }
+    }
+}
+function siguedosparedes () {
+    if (resta >= 0 && resta <= 2 || restadrchaizda >= 0 && restadrchaizda <= 2) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 95)
+        neZha.setMotorSpeed(neZha.MotorList.M1, 20)
+        basic.showIcon(IconNames.Yes)
+    } else {
+        if (izda > dcha) {
+            neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 110)
+            neZha.setMotorSpeed(neZha.MotorList.M1, 20)
+            basic.showIcon(IconNames.No)
+        }
+        if (izda < dcha) {
+            neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 70)
+            neZha.setMotorSpeed(neZha.MotorList.M1, 20)
+        }
+    }
+}
+input.onButtonPressed(Button.B, function () {
+    neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 95)
+})
+let restadrchaizda = 0
+let resta = 0
+let dcha = 0
+let izda = 0
+let cuentapared = 0
+let dpared = 0
+basic.showIcon(IconNames.Heart)
+dpared = 30
+cuentapared = 0
