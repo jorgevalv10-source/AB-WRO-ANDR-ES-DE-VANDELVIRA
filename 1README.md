@@ -8,15 +8,13 @@
 
 ## 👥 Team Members & Staff
 * **Students:**
-    * Marcelino Marín Pérez
+    * Fernando Auñón García
     * Máximo Navalón Calavera
     * Adrián García Martínez
     * Jorge Valverde Navarro
     * Alejandro López Roderas
 * **Coach / Teacher:**
-    * Fernando Auñón García
-
-> 📜 *Our signed **WRO Code of Ethics** is fully digitized and available under the `documentation/` directory of this repository.*
+    * Marcelino Marín Pérez
 
 ---
 
@@ -102,6 +100,4 @@ To ensure our development environment matched tournament standards, we installed
 
 Our autonomous vehicle performance has been fully logged and published on YouTube Shorts. The videos capture uninterrupted, autonomous operations exceeding the 30-second regulatory requirement for both official formats:
 
-* 🏎️ [Laps & Wall-Following Challenge - Open Challenge Video](https://youtube.com/shorts/PFYmbsbghdM?feature=share)
-* 🛑 [Traffic Block Avoidance - Obstacle Challenge Video](https://youtube.com/shorts/C6o_aeeS0og?si=LdYddICI6gDbA_ps)
-* 🅿️ [Autonomous Parallel Parking Maneuver - Parking Video](https://youtube.com/shorts/OMSZubMgkV8?feature=share)
+* 🏎️ [Laps & Wall-Following Challenge - Open Challenge Video]([https://youtube.com/shorts/PFYmbsbghdM?feature=share)
