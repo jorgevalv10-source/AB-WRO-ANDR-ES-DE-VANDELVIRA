@@ -100,4 +100,4 @@ To ensure our development environment matched tournament standards, we installed
 
 Our autonomous vehicle performance has been fully logged and published on YouTube Shorts. The videos capture uninterrupted, autonomous operations exceeding the 30-second regulatory requirement for both official formats:
 
-* 🏎️ [Laps & Wall-Following Challenge - Open Challenge Video]([https://youtube.com/shorts/PFYmbsbghdM?feature=share)
+* 🏎️ [Laps & Wall-Following Challenge - Open Challenge Video](https://youtube.com/shorts/KTrCkV_BpoE)
