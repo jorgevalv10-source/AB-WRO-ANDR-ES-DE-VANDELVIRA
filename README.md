@@ -1,16 +1,61 @@
-.# AB-WRO-ANDR-ES-DE-VANDELVIRA
-WRO PROJECT ANDRÉS DE VANDELVIRA
 
-- Technical Description
+### WRO 2026 - Future Engineers Category
+**Team:** Andrés de Vandelvira  
+**Country:** Spain 🇪🇸
 
-To build the car, we used Nezha parts. First, we built the chassis with bars at the very bottom to accommodate the module that holds the micro:bit board, along with the motors and ultrasonic sensors. We used two motors: one with a steering system on the front wheels to allow it to turn, and the other placed at the back so the rear wheels can provide the driving force to move forward, working together with the front motor and steering system to navigate.
+---
 
-Next, we installed a HuskyLens camera, which currently detects colors to identify the colored blocks, the parking area, and the walls. We also have two ultrasonic sensors: one in the front to detect the distance from the walls ahead and determine when to turn at the corners, and another on the right side so the car can guide itself using the right wall as a reference.
+## Team Members & Staff
+* **Students:**
+    * Fernando Auñón García
+    * Máximo Navalón Calavera
+    * Adrián García Martínez
+    * Jorge Valverde Navarro
+    * Alejandro López Roderas
+* **Coach / Teacher:**
+    * Marcelino Marín Pérez
 
-We added an additional ultrasonic sensor on the left side to better calibrate the car's position in the middle of the track. This also ensures that no matter where we start, the car can move forward smoothly without any issues.
+## 🛠️ Technical Description
 
-- Technical Development
+Our autonomous vehicle is built using **Nezha expansion parts** and powered by a **BBC micro:bit** board as the core controller. 
 
-During the first few days, we encountered some problems while building the car; we started with a three-wheeled design and weren't sure how to mount the HuskyLens. Finally, after two days, we managed to build the car using Nezha parts, creating a steering system with one motor and using another motor at the front to move forward and backward. We succeeded in connecting the HuskyLens using pins and a cable to the central module, which is also connected to the micro:bit. We also had issues regarding the car's distance from the sides, so we installed two ultrasonic sensors, one on each side.
+### Vehicle Architecture & Powertrain
+* **Chassis:** Structured with low-clearance bars to properly house the central power module, micro:bit board, motors, and sensors.
+* **Actuation & Steering:** We implemented a dual-motor configuration. 
+    * A **front directional motor** coupled with a steering rack system controls the vehicle's turning angle.
+    * A **rear traction motor** delivers the driving force to move forward and backward efficiently.
+* **Wheels:** Fitted with two large high-traction rear wheels for stability and power, and two slim, low-friction front wheels to maximize steering accuracy.
 
-For the circuit, we first bought the canvas so we could position everything properly. We also made the walls black to separate it from the outer and central lines. We had a problem tightening the outer walls, so we placed some blocks in the corners to make them straighter. The middle one is also uneven, but since it could be moved, we didn’t tighten it. We also made the parking area with a more pinkish color and added a piece of cardboard to stabilize the wall structure so we could attach it to the wall.
+### Sensors & Vision System
+* **Computer Vision:** We integrated a **HuskyLens AI camera** configured for real-time color detection. This allows the vehicle to recognize traffic/colored blocks, detect boundary walls, and locate the parking zone.
+* **Distance Sensors:** The vehicle utilizes **three ultrasonic sensors** for environment mapping and localization:
+    * **Front Sensor:** Measures distance to oncoming walls to accurately calculate when to execute turns at corners.
+    * **Right-Side Sensor:** Keeps a constant wall distance reference to guide the car steadily through straight sections.
+    * **Left-Side Sensor:** Working alongside the right sensor, it calibrates the car’s exact middle position on the track, ensuring a reliable autonomous start from any starting point.
+
+---
+
+## 📋 Component List
+* 1x BBC micro:bit board
+* 1x Nezha Expansion Module (Power & motor driver)
+* 1x HuskyLens AI Vision Sensor + Custom mounting bracket
+* 3x Ultrasonic Distance Sensors
+* 1x Driving Motor (Rear traction)
+* 1x Steering Motor (Front direction)
+* 2x Large rear wheels
+* 2x Small/slim front wheels
+* Nezha structural parts & custom cabling
+
+---
+
+## 📈 Engineering Development & Challenges
+
+### Robot Prototyping
+During the initial design phases, we faced structural challenges. We started with a three-wheeled concept and struggled to find an optimal position for the HuskyLens camera. After two days of iterations, we shifted to a four-wheeled Nezha chassis with dedicated front steering. 
+
+Wiring the HuskyLens also presented challenges due to connection pin compatibility; we solved this by designing a custom pin-to-cable adapter to connect it safely to the central Nezha module. Additionally, to resolve lateral drift and maintain a perfectly centered path, we upgraded our sensor array from one to two side ultrasonic sensors.
+
+### Track & Environment Setup
+To test our vehicle under official conditions, we acquired the official canvas track. We constructed custom black perimeter walls to sharply delimit the inner and outer boundaries. 
+
+We encountered tensioning issues keeping the outer walls straight, which we resolved by placing heavy structural blocks at the corners to reinforce them. For the parking zone, we utilized a distinct pinkish hue and stabilized the target wall using a custom cardboard backing structure to ensure rigid placement.
