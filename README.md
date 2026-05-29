@@ -20,7 +20,7 @@
 
 ## 📸 Media Gallery
 <p align="center">
-  <img src="media/team/team photo.jpeg" alt="Andrés de Vandelvira Engineering Team" width="45%"/>
+  <img src="t-photos/team photo.jpeg" alt="Andrés de Vandelvira Engineering Team" width="45%"/>
   <img src="media/robot/.jpeg" alt="Autonomous Vehicle Architecture" width="45%"/>
 </p>
 
